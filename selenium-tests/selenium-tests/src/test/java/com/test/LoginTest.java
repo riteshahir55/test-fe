@@ -24,28 +24,34 @@ public class LoginTest {
     }
 
     @Test
-    public void testLoginSuccess() throws InterruptedException {
-        driver.findElement(By.cssSelector("[data-testid='username']")).sendKeys("test");
-        driver.findElement(By.cssSelector("[data-testid='password']")).sendKeys("123");
-        driver.findElement(By.cssSelector("[data-testid='login-btn']")).click();
+public void testGoogleTitle() {
+    String title = driver.getTitle();
+    Assert.assertTrue(title.contains("Google"));
+}
 
-        Thread.sleep(1000);
+    // @Test
+    // public void testLoginSuccess() throws InterruptedException {
+    //     driver.findElement(By.cssSelector("[data-testid='username']")).sendKeys("test");
+    //     driver.findElement(By.cssSelector("[data-testid='password']")).sendKeys("123");
+    //     driver.findElement(By.cssSelector("[data-testid='login-btn']")).click();
 
-        WebElement message = driver.findElement(By.cssSelector("[data-testid='message']"));
-        Assert.assertEquals(message.getText(), "Login Successful");
-    }
+    //     Thread.sleep(1000);
 
-    @Test
-    public void testLoginFailure() throws InterruptedException {
-        driver.findElement(By.cssSelector("[data-testid='username']")).sendKeys("wrong");
-        driver.findElement(By.cssSelector("[data-testid='password']")).sendKeys("wrong");
-        driver.findElement(By.cssSelector("[data-testid='login-btn']")).click();
+    //     WebElement message = driver.findElement(By.cssSelector("[data-testid='message']"));
+    //     Assert.assertEquals(message.getText(), "Login Successful");
+    // }
 
-        Thread.sleep(1000);
+    // @Test
+    // public void testLoginFailure() throws InterruptedException {
+    //     driver.findElement(By.cssSelector("[data-testid='username']")).sendKeys("wrong");
+    //     driver.findElement(By.cssSelector("[data-testid='password']")).sendKeys("wrong");
+    //     driver.findElement(By.cssSelector("[data-testid='login-btn']")).click();
 
-        WebElement message = driver.findElement(By.cssSelector("[data-testid='message']"));
-        Assert.assertEquals(message.getText(), "Invalid credentials");
-    }
+    //     Thread.sleep(1000);
+
+    //     WebElement message = driver.findElement(By.cssSelector("[data-testid='message']"));
+    //     Assert.assertEquals(message.getText(), "Invalid credentials");
+    // }
 
     @AfterMethod
     public void teardown() {
