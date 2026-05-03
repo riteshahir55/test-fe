@@ -19,4 +19,5 @@ jobs:
           java-version: '17'
 
       - name: Run tests
+        working-directory: selenium-tests/selenium-tests
         run: mvn clean test
